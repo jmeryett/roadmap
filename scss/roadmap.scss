@@ -1,0 +1,110 @@
+$visible: #DEDEDE;
+$positive: #116611;
+$reward: #D7EA2B;
+$passive: #767676;
+
+
+.everything {
+  background-color: #141436;
+  color: $visible;
+  width: 2000px;
+  .title {
+  }
+
+  .footer {
+    display: flex;
+    flex-flow: row wrap;
+    color: $reward;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    > h3 {
+      margin: 0px;
+    }
+    .left {
+      margin: 0 50px 0 0;
+    }
+  }
+
+  .reward-item {
+    border: solid 1px;
+    border-color: $passive;
+    padding: 5px;
+    margin: 5px;
+    > h3 {
+      margin: 0px;
+    }
+    > h4 {
+      margin: 0px;
+    }
+  }
+
+  .selected {
+    color: $visible;
+    background-color: $positive;
+    border-color: $reward;
+  }
+
+  .map-wrap {
+    display: flex;
+    flex-direction: row;
+    .section-1 {
+      display: flex;
+      align-items: center;
+      flex-shrink: 1;
+      // background-color: #3333BB;
+      .more-flex {
+          display: flex;
+          flex-direction: row;
+        }
+    }
+    .section-2-wrap {
+      .more-flex {
+        display: flex;
+        flex-direction: row;
+      }
+      display: flex;
+      flex: 3;
+      flex-direction: column;
+      .section-2 {
+        display: flex;
+        flex-direction: row;
+        flex: 2;
+        background-color: #338833;
+        .section-4-5-wrap {
+          display: flex;
+          flex-direction: column;
+          flex: 2;
+          .section-4 {
+            display: flex;
+            background-color: #BBBB33;
+          }
+          .section-5 {
+            display: flex;
+            background-color: #33BBBB;
+          }
+        }
+      }
+      .section-3 {
+        display: flex;
+        flex-direction: row;
+        flex: 2;
+        background-color: #883333;
+        .section-6-7-wrap {
+          display: flex;
+          flex-direction: column;
+          flex: 2;
+          .section-6 {
+            display: flex;
+            background-color: #BB33BB;
+          }
+          .section-7 {
+            display: flex;
+            background-color: #333333;
+          }
+        }
+      }
+    }
+  }
+
+}
