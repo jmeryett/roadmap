@@ -24,6 +24,9 @@ $passive: #767676;
     .left {
       margin: 0 50px 0 0;
     }
+    .space {
+      padding: 5px;
+    }
   }
 
   .reward-item {
@@ -52,7 +55,6 @@ $passive: #767676;
       display: flex;
       align-items: center;
       flex-shrink: 1;
-      // background-color: #3333BB;
       .more-flex {
           display: flex;
           flex-direction: row;
@@ -70,18 +72,15 @@ $passive: #767676;
         display: flex;
         flex-direction: row;
         flex: 2;
-        background-color: #338833;
         .section-4-5-wrap {
           display: flex;
           flex-direction: column;
           flex: 2;
           .section-4 {
             display: flex;
-            background-color: #BBBB33;
           }
           .section-5 {
             display: flex;
-            background-color: #33BBBB;
           }
         }
       }
@@ -89,18 +88,15 @@ $passive: #767676;
         display: flex;
         flex-direction: row;
         flex: 2;
-        background-color: #883333;
         .section-6-7-wrap {
           display: flex;
           flex-direction: column;
           flex: 2;
           .section-6 {
             display: flex;
-            background-color: #BB33BB;
           }
           .section-7 {
             display: flex;
-            background-color: #333333;
           }
         }
       }

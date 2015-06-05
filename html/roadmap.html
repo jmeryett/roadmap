@@ -9,11 +9,10 @@
 
   <body class="everything">
     <div ng-controller="RoadmapController as roadmap">
-      <p class="title">{{roadmap.selected}}</p>
+
       <div class="map-wrap">
         <div class="section-1">
           <div class="more-flex">
-            <!-- <p>Section 1</p> -->
             <div ng-repeat="item in roadmap.map.section1">
               <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
             </div>
@@ -22,48 +21,50 @@
         <div class="section-2-wrap">
           <div class="section-2">
             <div class="more-flex">
-              <p>Section 2</p>
-              <p ng-click="roadmap.hello()">This is where an item will go</p>
-              <p class="unselected">This is unselected</p>
-              <p class="selected">This is selected</p>
+              <div ng-repeat="item in roadmap.map.section2">
+                <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
+              </div>
             </div>
 
             <div class="section-4-5-wrap">
               <div class="section-4">
-                <p>Section 4</p>
-                <p ng-click="roadmap.hello()">This is where an item will go</p>
-                <p class="unselected">This is unselected</p>
-                <p class="selected">This is selected</p>
+                <div class="more-flex">
+                  <div ng-repeat="item in roadmap.map.section4">
+                    <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
+                  </div>
+                </div>
               </div>
               <div class="section-5">
-                <p>Section 5</p>
-                <p ng-click="roadmap.hello()">This is where an item will go</p>
-                <p class="unselected">This is unselected</p>
-                <p class="selected">This is selected</p>
+                <div class="more-flex">
+                  <div ng-repeat="item in roadmap.map.section5">
+                    <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="section-3">
             <div class="more-flex">
-              <p>Section 3</p>
-              <p ng-click="roadmap.hello()">This is where an item will go</p>
-              <p class="unselected">This is unselected</p>
-              <p class="selected">This is selected</p>
+              <div ng-repeat="item in roadmap.map.section3">
+                <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
+              </div>
             </div>
 
             <div class="section-6-7-wrap">
               <div class="section-6">
-                <p>Section 6</p>
-                <p ng-click="roadmap.hello()">This is where an item will go</p>
-                <p class="unselected">This is unselected</p>
-                <p class="selected">This is selected</p>
+                <div class="more-flex">
+                  <div ng-repeat="item in roadmap.map.section6">
+                    <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
+                  </div>
+                </div>
               </div>
               <div class="section-7">
-                <p>Section 7</p>
-                <p ng-click="roadmap.hello()">This is where an item will go</p>
-                <p class="unselected">This is unselected</p>
-                <p class="selected">This is selected</p>
+                <div class="more-flex">
+                  <div ng-repeat="item in roadmap.map.section7">
+                    <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -73,15 +74,16 @@
 
       <div class="footer">
         <h3>Totals!</h3>
-        <p>Gold:</p>
-        <p>Gems:</p>
-        <p>Swords:</p>
-        <p>Runes:</p>
-        <p>Rune Removal:</p>
-        <p>Known Heroes:</p>
-        <p>Hero Tickets:</p>
-        <p>Known Fairies:</p>
-        <p>Fairy Tickets:</p>
+        <p class="space" ng-if="roadmap.rewards.gold">Gold: {{roadmap.rewards.gold}}K </p>
+        <p class="space" ng-if="roadmap.rewards.gems">Gems: {{roadmap.rewards.gems}} </p>
+        <p class="space" ng-if="roadmap.rewards.swords">Swords: {{roadmap.rewards.swords}} </p>
+        <p class="space" ng-if="roadmap.rewards.rune">Runes: {{roadmap.rewards.rune}} </p>
+        <p class="space" ng-if="roadmap.rewards.removal">Rune Removal: {{roadmap.rewards.removal}} </p>
+        <p class="space" ng-if="roadmap.rewards.knownHero">Known Heroes: {{roadmap.rewards.knownHero}} </p>
+        <p class="space" ng-if="roadmap.rewards.heroTicket">Hero Tickets: {{roadmap.rewards.heroTicket}} </p>
+        <p class="space" ng-if="roadmap.rewards.knownFairy">Known Fairies: {{roadmap.rewards.knownFairy}} </p>
+        <p class="space" ng-if="roadmap.rewards.fairyTicket">Fairy Tickets: {{roadmap.rewards.fairyTicket}} </p>
+        <p class="space" ng-if="roadmap.rewards.summon">Summon Tickets: {{roadmap.rewards.summon}} </p>
       </div>
 
     </div>
