@@ -1,7 +1,7 @@
 $visible: #DEDEDE;
 $positive: #116611;
 $reward: #D7EA2B;
-$passive: #767676;
+$passive: #565656;
 
 
 .everything {
@@ -31,7 +31,8 @@ $passive: #767676;
 
   .reward-item {
     border: solid 1px;
-    border-color: $passive;
+    border-color: $visible;
+    background-color: $passive;
     padding: 5px;
     margin: 5px;
     > h3 {
@@ -47,6 +48,11 @@ $passive: #767676;
     background-color: $positive;
     border-color: $reward;
   }
+  .more-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
   .map-wrap {
     display: flex;
@@ -55,16 +61,8 @@ $passive: #767676;
       display: flex;
       align-items: center;
       flex-shrink: 1;
-      .more-flex {
-          display: flex;
-          flex-direction: row;
-        }
     }
     .section-2-wrap {
-      .more-flex {
-        display: flex;
-        flex-direction: row;
-      }
       display: flex;
       flex: 3;
       flex-direction: column;

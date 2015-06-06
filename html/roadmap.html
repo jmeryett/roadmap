@@ -73,7 +73,7 @@
       </div>
 
       <div class="footer">
-        <h3>Totals!</h3>
+        <h3 ng-show="roadmap.rewards.total">Total cost: {{roadmap.rewards.total}}&diams;</h3>
         <p class="space" ng-if="roadmap.rewards.gold">Gold: {{roadmap.rewards.gold}}K </p>
         <p class="space" ng-if="roadmap.rewards.gems">Gems: {{roadmap.rewards.gems}} </p>
         <p class="space" ng-if="roadmap.rewards.swords">Swords: {{roadmap.rewards.swords}} </p>

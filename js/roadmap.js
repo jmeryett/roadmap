@@ -5,6 +5,7 @@ angular.module('roadmapApp', [])
     var self = this;
     self.selected = [];
     self.rewards = {};
+    self.rewards.total = 0;
 
     self.map = mapMaker.getMap();
 
@@ -36,8 +37,10 @@ angular.module('roadmapApp', [])
       console.log('mod reward with', item, 'and add?', add);
       if (add) {
           self.rewards[item.type] = (self.rewards[item.type]) ? (self.rewards[item.type] + item.value) : item.value;
+          self.rewards.total += item.cost;
       } else {
-        if (item.type == 'gold' || item.type == 'gems' || item.type == 'swords') {
+        self.rewards.total -= item.cost;
+        if (item.type == 'gold' || item.type == 'gems' || item.type == 'swords' || item.type == 'summon') {
           self.rewards[item.type] -= item.value;
         } else {
           var result = self.rewards[item.type].replace(item.value, '');
@@ -56,7 +59,17 @@ angular.module('roadmapApp', [])
       scope: {
         item: '=item'
       },
-      template:'<div class="reward-item" ng-class="{selected: item.selected}"> <h3> {{item.value}} {{item.type}} </h3> <h4> {{item.cost}}&diams; </h4> </div>'
+      template:'<div class="reward-item" ng-class="{selected: item.selected}"> <h3> {{item.value}} <span ng-hide="hidden"> {{hidden}} {{display}} </span> </h3> <h4> {{item.cost}}&diams; </h4> </div>',
+      link: function (scope) {
+        if (scope.item.type == 'knownHero' || scope.item.type == 'knownFairy') {
+          scope.hidden = true;
+        }
+        scope.display = scope.item.type
+          // insert a space before all caps
+          .replace(/([A-Z])/g, ' $1')
+          // uppercase the first character
+          .replace(/^./, function(str){ return str.toUpperCase(); })
+      }
     }
    })
 
