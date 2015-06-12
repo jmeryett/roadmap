@@ -11,20 +11,19 @@ angular.module('roadmapApp', [])
     self.map = mapMaker.getMap();
     self.tree = mapMaker.getTree();
 
-
     self.toggle = function (item) {
+      console.log('~[*.*]~ self.tree', angular.copy(self.tree));
+      console.log('~[*.*]~ item', angular.copy(item));
       item.selected = !item.selected;
 
       if (item.selected && self.cascade) {
         //toggle on parents of this one if this on is now on
         console.log('turn on all the parents');
-        var node = _.find(self.tree, {data: {id: item.id}});
-        console.log('I found', node);
-        console.log('self.map', self.map);
-        // var flatMap = _.flatten(self.map);
-        // console.log('flat map', flatMap)
-        var mapNode = _.find(self.otherMap, {id: item.id});
-        console.log('and also map node', mapNode);
+
+        // var node = _.find(self.tree, {data: {id: item.id}});
+        // var node = _.filter(self.tree, function (filterItem) {console.log('filterItem', filterItem); return filterItem.data.id == item.id})
+
+        var mapNode = _.find(self.map, {id: item.id});
       }
 
       var found;

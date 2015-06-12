@@ -6,6 +6,7 @@ angular.module('roadmapApp')
     node.parent = parent;
     node.left = null;
     node.right = null;
+    node.section = data.section
     return node;
   }
   return {

@@ -19,8 +19,8 @@
       <div class="map-wrap">
         <div class="section-1">
           <div class="more-flex">
-            <div ng-repeat="item in roadmap.map | filter: {section: 1}">
-              <reward-item item="item" ng-click="roadmap.toggle(item)"></reward-item>
+            <div ng-repeat="item in roadmap.tree | filter: {section: 1}">
+              <reward-item item="item.data" ng-click="roadmap.toggle(item)"></reward-item>
             </div>
           </div>
         </div>
