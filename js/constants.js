@@ -1,0 +1,1 @@
+angular.module('roadmapApp').constant('_', window._);
