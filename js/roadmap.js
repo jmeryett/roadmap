@@ -10,9 +10,9 @@ angular.module('roadmapApp', [])
 
     self.map = mapMaker.getMap();
     self.tree = mapMaker.getTree();
+    console.log('~[*.*]~ self.tree', angular.copy(self.tree));
 
     self.toggle = function (item) {
-      console.log('~[*.*]~ self.tree', angular.copy(self.tree));
       console.log('~[*.*]~ item', angular.copy(item));
       item.selected = !item.selected;
 

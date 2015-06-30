@@ -1,7 +1,4 @@
-angular.module('roadmapApp')
-.factory('rawMap', [function(){
-
-    var map = [
+[
       {
         id: 1,
         type: 'gold',
@@ -367,11 +364,3 @@ angular.module('roadmapApp')
         section: 7
       }
     ]
-
-    function getMap () {
-      return map;
-    }
-    return {
-      getMap: getMap
-    };
-  }])

@@ -4,10 +4,10 @@ angular.module('roadmapApp')
   var bn = BinaryNode;
   var tree;
 
-  function addNode (item, tree) {
+  function addNode (item, tree, megaTree) {
     var newNode = bn.newNode(item, tree[tree.length-1]);
-    tree[tree.length-1].left = newNode;
-    tree.push(newNode);
+    megaTree[megaTree.length-1].left = newNode;
+    megaTree.push(newNode);
   }
 
   function addBranching (section, branchNode, tree, left) {
@@ -30,27 +30,27 @@ angular.module('roadmapApp')
     //add the root
     tree.push(bn.newNode(raw.shift()));
 
-    _.filter(raw, {section: 1}).forEach(function (item){addNode(item, tree)});
+    _.filter(raw, {section: 1}).forEach(function (item){addNode(item, tree, tree)});
 
     // save the ref to where section1 branches to 2 and 3
     var section1Branch = tree[tree.length-1];
 
-    _.filter(raw, {section: 2}).forEach(function (item){addNode(item, tree)});
+    _.filter(raw, {section: 2}).forEach(function (item){addNode(item, tree, tree)});
 
     // save the ref to where section1 branches to 2 and 3
     var section2Branch = tree[tree.length-1];
 
-    _.filter(raw, {section: 4}).forEach(function (item){addNode(item, tree)});
+    _.filter(raw, {section: 4}).forEach(function (item){addNode(item, tree, tree)});
 
     var items = addBranching(5, section2Branch, raw);
     var section5 = items.section;
     var modTree = items.tree; //this reassingment wrecks the super cool binary tree probably
-    section5.forEach(function (item){addNode(item, modTree)});
+    section5.forEach(function (item){addNode(item, modTree, tree)});
 
     var items = addBranching(3, section1Branch, raw);
     var section3 = items.section;
     modTree = items.tree;
-    section3.forEach(function (item){addNode(item, modTree)});
+    section3.forEach(function (item){addNode(item, modTree, tree)});
 
     // save the ref to where section3 branches to 6 and 7
     var section3Branch = modTree[modTree.length-1];
@@ -59,7 +59,7 @@ angular.module('roadmapApp')
     var items = addBranching(6, section3Branch, raw, true);
     var section6 = items.section;
     modTree = items.tree;
-    section6.forEach(function (item){addNode(item, modTree)});
+    section6.forEach(function (item){addNode(item, modTree, tree)});
 
     var items = addBranching(7, section3Branch, raw);
     var section7 = items.section;
@@ -67,7 +67,7 @@ angular.module('roadmapApp')
     //having modtree means that the nodes get appended to the wrong tree,
     //so the total array does not have all of the nodes so I lose the
     //ability to use _.find s and stuff
-    section7.forEach(function (item){addNode(item, modTree)});
+    section7.forEach(function (item){addNode(item, modTree, tree)});
 
     return tree;
   }
